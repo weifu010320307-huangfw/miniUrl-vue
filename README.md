@@ -20,7 +20,7 @@ Vue + SpringBoot + MongoDB
 (4) Datatable - UI component to create beatiful table  
 
 
-3. The final UI pages
+3.The final UI pages
 
 The UI is just some prototype and has not been designed by UI engineer
 
