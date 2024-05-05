@@ -1,0 +1,105 @@
+
+
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+
+
+    <link rel="icon" href="/resources/static/favicon.ico">
+    
+    <link rel="stylesheet" type="text/css" href="/resources/static/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/resources/static/css/shortUrl.css">
+    <link th:rel="stylesheet" th:href="@{/resources/static/assets/datatable/datatables.css}"/>    
+    <link th:rel="stylesheet" th:href="@{/resources/static/assets/datatable/bootstrap-only.css} "/> 
+   
+    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>miniUrl</title>
+</head>
+
+<body>
+
+
+    <nav>
+        <header>
+            <a th:href="@{/}">miniUrl</a>
+        </header> 
+        <ul>
+
+            <li><a th:href="@{/userdata}">Management</a></li>
+            <li><a th:href="@{/registration}">Registration</a></li>
+            <li th:if="${#authentication == null || (#authentication.name == 'anonymousUser')}"><a class="logoutLink" th:href="@{/login}" >Login</a></li>
+            <li th:if="${#authentication != null and (#authentication.name != 'anonymousUser') }"><a class="logoutLink" >Logout</a></li>
+           
+        </ul>
+
+    </nav>
+
+    <main>
+
+        <div class="bootstrap-only">
+            <div class="container-fluid">
+                <div class="row">
+                <div class="col-lg-10 mt-5 mb-5">
+
+                    <caption>
+                        <h3>Url shorten statistics for current user</h3>
+
+                    </caption>
+                    <table id="userdata" class="table table-bordered table-responsive" style="word-break: break-word; width: 100%" role="table">
+
+                        <thead>
+                        <tr>
+                            <th scope="col">Short Url</th>
+                            <th scope="col">Long Url</th>
+                            <th scope="col">Shorten Times</th>
+                            <th scope="col">Access Times</th>
+                            <th scope="col">Belong User</th>
+        
+                        </tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+                            <th scope="col">Short Url</th>
+                            <th scope="col">Long Url</th>
+                            <th scope="col">Shorten Times</th>
+                            <th scope="col">Access Times</th>
+                            <th scope="col">Belong User</th>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+    <form id="logoutForm" th:action="@{/logout}" method="post" >
+    </form>
+
+
+
+
+
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    <script th:src="@{/resources/static/assets/datatable/datatables.js}"></script>
+    <script th:src="@{/resources/static/js/querydata.js}"></script>
+
+    <!-- // after setting the content security, inline script can not run, so move js code to a file and then link
+    // but since the link change between login and logout, caused the element not exist, so load this js at the end of the page -->
+    <script type="text/javascript"  src="/resources/static/js/main.js"></script>
+    
+
+
+</body>
+
+
+
+</html>

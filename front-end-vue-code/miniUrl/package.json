@@ -1,0 +1,28 @@
+{
+  "name": "miniurl", 
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test:unit": "vitest"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.1",
+    "datatables.net": "^1.13.6",
+    "datatables.net-bs5": "^1.13.6",
+    "datatables.net-dt": "^1.13.6",
+    "datatables.net-vue3": "^2.1.3",
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.3.4",
+    "@vue/test-utils": "^2.4.1",
+    "cypress": "^13.3.3",
+    "jsdom": "^22.1.0",
+    "vite": "^4.4.9",
+    "vitest": "^0.34.6"
+  }
+}

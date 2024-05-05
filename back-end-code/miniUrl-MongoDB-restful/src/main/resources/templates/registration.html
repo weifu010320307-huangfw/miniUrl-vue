@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <link rel="icon" href="/resources/static/favicon.ico">
+        <link rel="stylesheet" type="text/css" href="/resources/static/css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="/resources/static/css/shortUrl.css">
+        <title>miniUrl</title>
+    </head>
+<body>
+
+  <nav>
+    <header>
+        <a th:href="@{/}">miniUrl</a>
+    </header> 
+    <ul>
+        <li><a th:href="@{/userdata}">Management</a></li>
+        <li><a th:href="@{/registration}">Registration</a></li>
+        <li th:if="${#authentication == null || (#authentication.name == 'anonymousUser')}"><a class="logoutLink" th:href="@{/login}" >Login</a></li>
+        <li th:if="${#authentication != null and (#authentication.name != 'anonymousUser') }"><a class="logoutLink" >Logout</a></li>
+
+       
+    </ul>
+
+  </nav>
+
+  <form class="formClass" th:action="@{/registration}" th:object="${userInfo}" method="POST" enctype="utf8">
+      <h2>Fill in to register an account</h2>
+      <label class="italicLabel" for="userName">User Name</label>
+      <input id="userName" required aria-required="true" th:field="*{userName}"/> 
+
+      <p id="checkUser" class="message" style="display: none;"></p>
+      <p id="checkUser" class="error" th:each="error: ${#fields.errors('userName')}" 
+        th:text="${error}" role="alert" aria-relevant="all">Validation error</p>
+
+
+      <label class="italicLabel" for="password">Password</label>
+      <input id="password" type="password" required aria-required="true" th:field="*{password}"/>
+      <p class="error" th:each="error : ${#fields.errors('password')}" 
+        th:text="${error}" role="alert" aria-relevant="all">Validation error</p>    
+
+      <label class="italicLabel" for="confirmPassword">Confirm Password</label>
+      <input id="confirmPassword" type="password" required aria-required="true" th:field="*{confirmPassword}"/>    
+      <p class="error" th:each="error : ${#fields.errors('confirmPassword')}" 
+      th:text="${error}" role="alert" aria-relevant="all">Validation error</p>  
+
+      <button id="registrationButton" type="submit" class="buttonClass">Registration</button>
+      <button id="resetRegister" class="buttonClass" type="reset"><i>Reset</i></button>
+      <p class="registrationOrLogin"><a th:href="@{/login}">Sign in if already has an account</a></p>
+
+  </form>
+
+  <form id="logoutForm" th:action="@{/logout}" method="post" >
+  </form>
+
+
+
+</body>
+
+  <!-- // after setting the content security, inline script can not run, so move js code to a file and then link
+// but since the link change between login and logout, caused the element not exist, so load this js at the end of the page -->
+<script type="text/javascript"  src="/resources/static/js/main.js"></script>
+
+</html>

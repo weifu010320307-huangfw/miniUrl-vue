@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>miniUrl</title>
+        <link rel="icon" href="/resources/static/favicon.ico">
+        <link rel="stylesheet" type="text/css" href="/resources/static/css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="/resources/static/css/shortUrl.css">
+    </head>
+    <body>
+
+        <nav>
+            <header>
+                <a th:href="@{/}">miniUrl</a>
+            </header> 
+            <ul>
+                <li><a th:href="@{/userdata}">Management</a></li>
+                <li><a th:href="@{/registration}">Registration</a></li>
+                <li th:if="${#authentication == null || (#authentication.name == 'anonymousUser')}"><a class="logoutLink" th:href="@{/login}" >Login</a></li>
+                <li th:if="${#authentication != null and (#authentication.name != 'anonymousUser') }"><a class="logoutLink" >Logout</a></li>
+                    
+
+                <!-- <li><a th:href="@{/login}" th:text="${#authentication == null || (#authentication.name == 'anonymousUser')} ?: 'Logout'">Login</a></li> -->
+
+            </ul>
+    
+        </nav>
+
+        <form class="formClass" th:action="@{/login}" method="post">
+            
+            <h2>Sign in to see all your url</h2>
+            <label class="italicLabel" for="username"> User Name </label>
+            <input type="text" id="username" name="username" required aria-required="true"/> 
+            <label class="italicLabel" for="password" > Password </label>
+            <input type="password" id="password" name="password" required aria-required="true"/>
+            <!-- <input class="buttonClass" type="submit" value="Sign In"/> -->
+            <button id="loginButton" class="buttonClass" type="submit"><i>Sign In</i></button>
+            <button id="resetLogin" class="buttonClass" type="reset"><i>Reset</i></button>
+            <p class="registrationOrLogin"><a th:href="@{/registration}">Or registration an account</a></p>
+            <p class="error" role="alert" aria-relevant="all" th:if="${param.error}">
+                Invalid username or password
+            </p>
+            <p class="message" role="alert" aria-relevant="all" th:if="${param.logout}">
+                You have been logged out
+            </p>
+        </form>
+
+        <form id="logoutForm" th:action="@{/logout}" method="post" >
+        </form>
+        
+
+    </body>
+
+<script type="text/javascript"  src="/resources/static/js/main.js"></script>
+
+</html>

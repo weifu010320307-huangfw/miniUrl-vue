@@ -1,0 +1,340 @@
+
+/* General definition */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 10px;
+
+     
+  height: 100%;
+
+
+    
+
+}
+
+body
+{
+
+  
+  width: 100%;
+  /* height: 100%; */
+  margin: 0 auto;
+  /* background-color: lightyellow; */
+  /* display: flex;
+  justify-content:center;
+
+  flex-direction: column; */
+    
+  background-image: linear-gradient( rgba(0, 234, 255, 0.5), rgba(0, 255, 170, 0.9)); 
+
+  
+  /* overflow: hidden; */
+  /* margin: 0; */
+
+   height: 100%;
+
+}
+
+
+
+/* Type level definition */
+header, nav, article, aside, footer, section {
+  padding: 1%;
+
+}
+
+
+
+nav
+{
+
+  height: 5rem;
+  /* background-color: linear-gradient( rgba(0, 234, 255, 0.5), rgba(0, 255, 170, 0.9));  */
+  display: flex;
+  align-items: stretch;
+
+  /* justify-content:center; */
+  /* align-items:stretch;  */
+
+  /* height: 30%; */
+  /* flex-direction: row; */
+  /* border:1px solid lightblue; */
+  /* margin-top: 6rem; */
+  background-image: linear-gradient(  rgba(0, 255, 170, 0.9), rgba(0, 234, 255, 0.5));
+}
+
+nav ul
+{
+  height: 5rem;
+  flex: 1;
+  display: flex;
+  justify-items: flex-end;
+  align-items: stretch;
+  /* align-content: end; */
+  list-style-type: none;
+  padding: 0;
+  
+}
+
+ul li
+{
+
+  display: inline;
+  flex: min-content;
+  /* flex: 1; */
+  text-align: right;
+  padding: 0.3rem;
+
+}
+
+
+
+nav a {
+  display: inline-block;
+  font-size: 2rem;
+  /* text-transform: uppercase; */
+  text-decoration: none;
+  color: white;
+
+}
+
+nav a:hover
+{
+  color: blue;
+  /* background-color: #0000ff; */
+
+}
+
+
+
+
+Nav header
+{
+  flex: 2;
+  display: flex;
+  align-items: center;
+}
+
+Nav header a
+{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: xx-large;
+  text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+
+}
+
+/* table {
+  border-collapse: collapse;
+  border: 2px solid rgb(200,200,200);
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+  margin: 5rem auto auto;
+}
+
+td, th {
+  border: 1px solid rgb(190,190,190);
+  padding: 10px 20px;
+} */
+
+/* th {
+  background-color: rgb(235,235,235);
+}
+
+td {
+  text-align: center;
+}
+
+tr:nth-child(even) td {
+  background-color: rgb(250,250,250);
+}
+
+tr:nth-child(odd) td {
+  background-color: rgb(245,245,245);
+} */
+
+label.italicLabel
+{
+  display: block;
+  font: 1.5rem sans-serif;
+  font-style: italic;
+  
+}
+
+input
+{
+  width: 80%;
+  height: 30px;
+  font: 1.5rem sans-serif;
+  border:none;
+  border-radius: 0.3rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+input:focus
+{
+  /* outline-color: rgb(0, 128, 90); */
+  /* border-color: blue; */
+  outline: none;
+}
+
+h2
+{
+  font-size: 2rem;
+  font-style: italic;
+  color: blue;
+}
+
+a, span
+{
+  color: blue;
+}
+
+/* button[disabled] 
+{ 
+  opacity:0.4; 
+  cursor : not-allowed !important; 
+} */
+
+
+/* Class level definition */
+.bootstrap-only
+{
+
+  padding-left: 1%;
+  padding-top: 1%;
+
+  
+
+} 
+
+.buttonClass
+{
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  margin-top: 6px;
+  font: 1.5rem sans-serif;
+  font-style: italic;
+  border-radius: 0.3rem;
+  border: none;
+}
+
+.buttonClass:hover
+{
+  background-color: #0000ff;
+  color: white;
+}
+
+.buttonClass:disabled
+{
+
+  pointer-events: none
+}
+
+.formClass
+{
+  /* 居中表单 */
+  margin: 10% auto;
+  /* top: calc(50%); */
+
+  
+  width: 20%;
+
+
+
+}
+
+.error, .message
+{
+  font: 1.5rem sans-serif;
+  font-style: italic;
+  color: blue;
+
+}
+
+.registrationOrLogin
+{
+  font-size: 1.5rem;
+  font-style: italic;
+  color: blue;
+}
+
+
+
+
+/* Specific level definition */
+
+#shortenFormLabel
+{
+  display: block;
+  margin-bottom: 6px;
+  font: 2rem bold;
+
+  /* font-size: 2rem;
+  font-style: italic bold; */
+  /* font-style: italic; */
+  color: blue;
+
+ 
+}
+
+#shortenForm
+{
+
+  margin: 10% auto;
+  width: 60%;
+
+}
+
+#shortUrlInput
+{
+  width: 100%;
+  height: 30px;
+  font: 1.5rem sans-serif;
+  border:none;
+  border-radius: 0.3rem;
+  font-style: italic;
+}
+
+#shortenNowButton, #resetButton
+{
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  margin-top: 6px;
+  font: 1.2rem sans-serif;
+  border-radius: 0.3rem;
+  border: none;
+}
+
+#shortenNowButton:hover, #resetButton:hover
+{
+  background-color: #0000ff;
+  color: white;
+}
+
+#resetButton, #resetLogin, #resetRegister
+{
+  margin-left: 0.5rem;
+}
+
+#shortenResult, #shortenRatio, #accessRatio, #emptyError, #signInLink
+{
+  margin-top: 2rem;
+  font: 1.5rem sans-serif;
+  font-style: italic;
+  /* visibility: hidden; */
+}
+
+
+
+.error
+{
+  color: red;
+}
+

@@ -1,0 +1,179 @@
+
+
+
+ label.italicLabel
+{
+  display: block;
+  font: 1.5rem sans-serif;
+  font-style: italic;
+  
+}
+
+input
+{
+  width: 80%;
+  height: 30px;
+  font: 1.5rem sans-serif;
+  border:none;
+  border-radius: 0.3rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+input:focus
+{
+
+  outline: none;
+}
+
+h2
+{
+  font-size: 2rem;
+  font-style: italic;
+  color: blue;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+
+
+a, span
+{
+  color: blue;
+}
+
+
+
+
+/* Class level definition */
+.bootstrap-only
+{
+
+  padding-left: 1%;
+  padding-top: 1%;
+
+  
+
+} 
+
+.buttonClass
+{
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  margin-top: 6px;
+  margin-bottom: 1rem;
+  font: 1.5rem sans-serif;
+  font-style: italic;
+  border-radius: 0.3rem;
+  border: none;
+}
+
+.buttonClass:hover
+{
+  background-color: #0000ff;
+  color: white;
+}
+
+.buttonClass:disabled
+{
+
+  pointer-events: none
+}
+
+.formClass
+{
+  /* 居中表单 */
+  margin: 10% auto;
+
+  
+  width: 20%;
+
+
+
+}
+
+.error, .message
+{
+  font: 1.5rem sans-serif;
+  font-style: italic;
+  color: blue;
+
+}
+
+.registrationOrLogin
+{
+  font-size: 1.5rem;
+  font-style: italic;
+  color: blue;
+}
+
+
+
+
+/* Specific level definition */
+
+#shortenFormLabel
+{
+  display: block;
+  margin-bottom: 6px;
+  font: 2rem bold;
+
+  color: blue;
+
+ 
+}
+
+#shortenForm
+{
+
+  margin: 10% auto;
+  width: 60%;
+
+}
+
+#shortUrlInput
+{
+  width: 100%;
+  height: 30px;
+  font: 1.5rem sans-serif;
+  border:none;
+  border-radius: 0.3rem;
+  font-style: italic;
+}
+
+#shortenNowButton, #resetButton
+{
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  margin-top: 6px;
+  font: 1.2rem sans-serif;
+  border-radius: 0.3rem;
+  border: none;
+}
+
+#shortenNowButton:hover, #resetButton:hover
+{
+  background-color: #0000ff;
+  color: white;
+}
+
+#resetButton, #resetLogin, #resetRegister
+{
+  margin-left: 0.5rem;
+}
+
+#shortenResult, #shortenRatio, #accessRatio, #emptyError, #signInLink
+{
+  margin-top: 2rem;
+  font: 1.5rem sans-serif;
+  font-style: italic;
+}
+
+
+
+.error
+{
+  color: red;
+}

@@ -1,0 +1,69 @@
+
+
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="icon" href="/resources/static/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/resources/static/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/resources/static/css/shortUrl.css">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>miniUrl</title>
+</head>
+
+<body>
+
+    <nav>
+        <header>
+            <a th:href="@{/}">miniUrl</a>
+        </header> 
+        <ul>
+            <li><a th:href="@{/userdata}">Management</a></li>
+            <li><a th:href="@{/registration}">Registration</a></li>
+            <li th:if="${#authentication == null || (#authentication.name == 'anonymousUser')}"><a class="logoutLink" th:href="@{/login}" >Login</a></li>
+            <li th:if="${#authentication != null and (#authentication.name != 'anonymousUser') }"><a class="logoutLink" >Logout</a></li>
+           
+        </ul>
+
+    </nav>
+
+    <form id="shortenForm" th:action="@{/shortUrl}" th:object="${shortUrlData}" method="post"> 
+        <label for="shortUrlInput">         
+            <h2>Enter the url to be shorten</h2> 
+        </label>
+
+        <input type="text" id="shortUrlInput" required aria-required="true" th:field="*{longUrl}" >
+
+        <p id="emptyError" role="alert" th:if="${#fields.hasErrors('longUrl')}" th:class="${#fields.hasErrors('longUrl')}? error" th:errors="*{longUrl}">Empty error</p>
+        <button id="shortenNowButton" type="submit"><i>Shorten now</i></button>
+        <button id="resetButton"><i>Reset</i></button>
+        <p id="shortenResult" role="alert" aria-relevant="all" th:if="${not #fields.hasErrors('longUrl')} and *{longUrl}">The shorten url is <a th:href="*{shortUrl}" target="_blank" ref="noopener" th:text="*{shortUrl}"> access now </a></p>
+        <p id="shortenRatio" role="alert" aria-relevant="all" th:if="*{shortenTimes}">How often was the url shorten? <span th:text="*{shortenTimes}"> shortenTimes </span> times</p>
+        
+        <!-- set condition to use shortenTimes so that when accessTimes = 0 still can be show -->
+        <p id="accessRatio" role="alert" aria-relevant="all" th:if="*{shortenTimes}">How often was the shortten url accessed? <span th:text="*{accessTimes}"> accessTimes </span> times</p>
+        <p id="signInLink" th:if="${not #fields.hasErrors('longUrl')} and *{longUrl}"><a th:href="@{/login}">Sign in </a>to manage all your data</p>
+
+     
+    </form>
+
+
+
+    <form id="logoutForm" th:action="@{/logout}" method="post" >
+    </form>
+
+
+
+
+
+</body>
+
+
+<!-- // after setting the content security, inline script can not run, so move js code to a file and then link
+// but since the link change between login and logout, caused the element not exist, so load this js at the end of the page -->
+<script type="text/javascript"  src="/resources/static/js/main.js"></script>
+
+</html>
